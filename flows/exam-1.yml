@@ -1,20 +1,18 @@
-title: "RELATE Test Exam"
+title: "HCS 101 Exam - 2020-1"
 description: |
 
-    # RELATE Test Exam
+    # End of semester one 2021 Exam for HCS 101
 
 rules:
     start:
     -
-        if_has_role: [instructor, ta, student]
+        if_has_role: [student]
         if_has_fewer_sessions_than: 1
-        if_in_facility: test_center
         may_start_new_session: True
         may_list_existing_sessions: True
 
     -
         if_has_role: [instructor, ta, student]
-        if_in_facility: test_center
         may_start_new_session: False
         may_list_existing_sessions: True
 
@@ -28,24 +26,20 @@ rules:
         permissions: []
 
     -
-        if_in_facility: test_center
         if_session_duration_shorter_than_minutes: 0.5
         permissions: [view, submit_answer, end_session, see_session_time, lock_down_as_exam_session]
 
     -
-        if_in_facility: test_center
         message: "You exam will end soon."
         if_session_duration_shorter_than_minutes: 1
         permissions: [view, submit_answer, end_session, see_session_time, lock_down_as_exam_session]
 
     -
-        if_in_facility: test_center
         if_in_progress: True
         message: "You exam has ended. You may no longer make changes. Please click 'Submit assignment' to finish."
         permissions: [view, end_session, see_correctness, see_session_time, lock_down_as_exam_session]
 
     -
-        if_in_facility: test_center
         permissions: [view, see_correctness, see_session_time]
 
     -
@@ -66,9 +60,9 @@ pages:
     id: welcome
     content: |
 
-        # Welcome to the test exam for RELATE!
+        # Welcome to the exam.
 
-        Don't be scared.
+        Good luck!
 
 -
     type: HumanGradedTextQuestion
@@ -77,14 +71,14 @@ pages:
     widget: textarea
     prompt: |
 
-        # Mark Twain
+        # Network Topologies
 
-        Discuss the literary work of Mark Twain.
+        List the main network topologies you know.
 
     rubric: |
 
-        Has something interesting to say.
+        Network topologies as studied during the semesrer
 
 completion_text: |
 
-    You have successfully completed the test exam!
+    You have successfully completed the exam!
